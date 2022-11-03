@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AdamsNoah_Game/Scenes/Main Menu.unity
+    path: Assets/TurnGame/Scenes/Main Menu.unity
     guid: 1e3f6fff272b9af4283fec3e3a14e44a
   - enabled: 1
-    path: Assets/AdamsNoah_Game/Scenes/Level.unity
+    path: Assets/TurnGame/Scenes/Level.unity
     guid: 030c90ae0be95aa4ca8238eee41380d0
   m_configObjects: {}

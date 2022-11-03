@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TurnGameSM : StateMachine
 {
-    private void Start()
+    [SerializeField] InputController _input;
+    public InputController Input => _input;
+    void Start()
     {
         // set starting State here
     }
