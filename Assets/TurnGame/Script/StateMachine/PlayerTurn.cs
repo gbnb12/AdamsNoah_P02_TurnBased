@@ -23,14 +23,16 @@ public class PlayerTurn : TurnGameState
     public override void Exit()
     {
         _playerTurnTextUI.gameObject.SetActive(false);
+        Debug.Log("Player Turn: Exit");
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
 
-        Debug.Log("Player Turn: Exit");
+        
     }
 
     void OnPressedConfirm()
     {
+        StateMachine.ChangeState<AITurn>();
         Debug.Log("Attempt to enter Enemy State!");
         // change the enemy turn state
     }

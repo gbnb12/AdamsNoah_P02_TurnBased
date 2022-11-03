@@ -12,10 +12,10 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        PressedConfirm();
-        PressedCancel();
-        PressedLeft();
-        PressedRight();
+        DetectConfirm();
+        DetectCancel();
+        DetectLeft();
+        DetectRight();
     }
 
     private void DetectRight()
@@ -49,4 +49,7 @@ public class InputController : MonoBehaviour
             PressedConfirm?.Invoke();
         }
     }
+
 }
+
+

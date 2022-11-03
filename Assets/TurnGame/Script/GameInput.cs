@@ -21,6 +21,11 @@ public class GameInput : MonoBehaviour
         {
             SceneManager.LoadScene("Main Menu");
         }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Debug.Log("Hello");
+        }
     }
 
     void ReloadLevel()
@@ -29,4 +34,6 @@ public class GameInput : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(activeSceneIndex);
     }
+
+
 }

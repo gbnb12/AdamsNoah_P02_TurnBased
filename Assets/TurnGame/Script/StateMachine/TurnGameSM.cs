@@ -9,5 +9,6 @@ public class TurnGameSM : StateMachine
     void Start()
     {
         // set starting State here
+        ChangeState<Setup>();
     }
 }
