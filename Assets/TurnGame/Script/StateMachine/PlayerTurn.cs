@@ -27,13 +27,13 @@ public class PlayerTurn : TurnGameState
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
 
-        
+        Debug.Log("Player Turn; Exit");
     }
 
     void OnPressedConfirm()
     {
-        StateMachine.ChangeState<AITurn>();
         Debug.Log("Attempt to enter Enemy State!");
         // change the enemy turn state
+        StateMachine.ChangeState<AITurn>();
     }
 }
