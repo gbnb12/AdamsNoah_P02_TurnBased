@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerTurn : TurnGameState
 {
     [SerializeField] Text _playerTurnTextUI = null;
-
+    //[SerializeField] Collider _playerPiece;
+    //[SerializeField] Collider _AIPiece;
     int _playerTurnCount = 0;
 
     public override void Enter()
@@ -16,6 +17,9 @@ public class PlayerTurn : TurnGameState
 
         _playerTurnCount++;
         _playerTurnTextUI.text = "PlayerTurn: " + _playerTurnCount.ToString();
+
+        StateMachine.Input.PressedAttack += OnPressedAttack;
+
         // hook into events
         StateMachine.Input.PressedConfirm += OnPressedConfirm;
     }
@@ -26,6 +30,7 @@ public class PlayerTurn : TurnGameState
         Debug.Log("Player Turn: Exit");
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
+        StateMachine.Input.PressedConfirm -= OnPressedAttack;
 
         Debug.Log("Player Turn; Exit");
     }
@@ -34,6 +39,12 @@ public class PlayerTurn : TurnGameState
     {
         Debug.Log("Attempt to enter Enemy State!");
         // change the enemy turn state
+        StateMachine.ChangeState<AITurn>();
+    }
+
+    void OnPressedAttack()
+    {
+        Debug.Log("Player attacks the AI!");
         StateMachine.ChangeState<AITurn>();
     }
 }
