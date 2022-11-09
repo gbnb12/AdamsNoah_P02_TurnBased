@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
+=======
+>>>>>>> main
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -10,9 +13,12 @@ public class Health : MonoBehaviour, IDamageable
 
     [SerializeField] Text _healthText;
 
+<<<<<<< HEAD
     public GameObject targetObject;
 
 
+=======
+>>>>>>> main
     void Start()
     {
         _currentHealth = 100;
@@ -20,10 +26,17 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Kill()
     {
+<<<<<<< HEAD
         Destroy(targetObject);
     }
 
     public void TakeAttackDamage(int amount)
+=======
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(int amount)
+>>>>>>> main
     {
         _currentHealth -= amount;
         _healthText.GetComponent<Text>().text = "Health: " + _currentHealth;
@@ -34,6 +47,7 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
+<<<<<<< HEAD
     public void TakeLaserDamage(int number)
     {
         _currentHealth -= number;
@@ -49,5 +63,10 @@ public class Health : MonoBehaviour, IDamageable
     {
         _currentHealth += level;
         _healthText.GetComponent<Text>().text = "Health: " + _currentHealth;
+=======
+    public void Heal(int level)
+    {
+        _currentHealth += level;
+>>>>>>> main
     }
 }

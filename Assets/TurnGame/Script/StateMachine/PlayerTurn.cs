@@ -7,8 +7,13 @@ using UnityEngine.SceneManagement;
 public class PlayerTurn : TurnGameState
 {
     [SerializeField] Text _playerTurnTextUI = null;
+<<<<<<< HEAD
     [SerializeField] Text _laserTextUI = null;
 
+=======
+    //[SerializeField] Collider _playerPiece;
+    //[SerializeField] Collider _AIPiece;
+>>>>>>> main
     int _playerTurnCount = 0;
 
     [SerializeField] Collider _playerPiece;
@@ -25,7 +30,11 @@ public class PlayerTurn : TurnGameState
         _playerTurnCount++;
         _playerTurnTextUI.text = "PlayerTurn: " + _playerTurnCount.ToString();
 
+<<<<<<< HEAD
         _laserCountdown += 1;
+=======
+        StateMachine.Input.PressedAttack += OnPressedAttack;
+>>>>>>> main
 
         // hook into events
         StateMachine.Input.PressedConfirm += OnPressedConfirm;
@@ -47,9 +56,13 @@ public class PlayerTurn : TurnGameState
         Debug.Log("Player Turn: Exit");
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
+<<<<<<< HEAD
         StateMachine.Input.PressedAttack -= OnPressedAttack;
         StateMachine.Input.PressedLaser -= OnPressedLaser;
         StateMachine.Input.PressedHeal -= OnPressedHeal;
+=======
+        StateMachine.Input.PressedConfirm -= OnPressedAttack;
+>>>>>>> main
 
         Debug.Log("Player Turn; Exit");
     }
@@ -64,6 +77,7 @@ public class PlayerTurn : TurnGameState
     void OnPressedAttack()
     {
         Debug.Log("Player attacks the AI!");
+<<<<<<< HEAD
         IDamageable damage = _AIPiece.GetComponent<IDamageable>();
         if (damage != null)
         {
@@ -96,4 +110,8 @@ public class PlayerTurn : TurnGameState
         StateMachine.ChangeState<AITurn>();
     }
 
+=======
+        StateMachine.ChangeState<AITurn>();
+    }
+>>>>>>> main
 }
