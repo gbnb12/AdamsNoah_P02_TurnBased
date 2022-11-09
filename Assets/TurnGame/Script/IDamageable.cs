@@ -4,8 +4,11 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public void TakeDamage(int amount);
+    public void TakeAttackDamage(int amount);
+
+    public void TakeLaserDamage(int number);
+
     public void Kill();
 
-    public void Heal(int amount);
+    public void Heal(int recover);
 }

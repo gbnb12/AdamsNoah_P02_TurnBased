@@ -7,42 +7,20 @@ public class InputController : MonoBehaviour
 {
     public event Action PressedConfirm = delegate { };
     public event Action PressedCancel = delegate { };
-    public event Action PressedLeft = delegate { };
-    public event Action PressedRight = delegate { };
     public event Action PressedAttack = delegate { };
     public event Action PressedDefend = delegate { };
-    public event Action PressedMagic = delegate { };
+    public event Action PressedLaser = delegate { };
     public event Action PressedHeal = delegate { };
 
-    [SerializeField] Collider _playerPiece;
-    [SerializeField] Collider _AIPiece;
 
     private void Update()
     {
         DetectConfirm();
         DetectCancel();
-        DetectLeft();
-        DetectRight();
         DetectAttack();
         DetectDefend();
-        DetectMagic();
+        DetectLaser();
         DetectHeal();
-    }
-
-    private void DetectRight()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            PressedRight?.Invoke();
-        }
-    }
-
-    private void DetectLeft()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            PressedLeft?.Invoke();
-        }
     }
 
     private void DetectCancel()
@@ -66,11 +44,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             PressedAttack?.Invoke();
-            IDamageable damage = _AIPiece.GetComponent<IDamageable>();
-            if (damage != null)
-                {
-                    damage.TakeDamage(50); 
-                }
+            
         }
     }
 
@@ -82,16 +56,12 @@ public class InputController : MonoBehaviour
         }
     }
 
-    private void DetectMagic()
+    private void DetectLaser()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            PressedMagic?.Invoke();
-            IDamageable damage = _AIPiece.GetComponent<IDamageable>();
-            if (damage != null)
-            {
-                damage.TakeDamage(100);
-            }
+            PressedLaser?.Invoke();
+            
         }
     }
 
@@ -100,11 +70,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             PressedHeal?.Invoke();
-            IDamageable recover = _AIPiece.GetComponent<IDamageable>();
-            if (recover != null)
-            {
-                recover.Heal(20);
-            }
+            
         }
     }
 }

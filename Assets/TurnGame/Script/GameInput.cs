@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameInput : MonoBehaviour
 {
+
+    [SerializeField] Collider _playerCollider;
+    [SerializeField] Collider _AICollider;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -22,10 +26,6 @@ public class GameInput : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
         }
 
-        if (Input.GetKey(KeyCode.Q))
-        {
-            Debug.Log("Hello");
-        }
     }
 
     void ReloadLevel()
@@ -35,5 +35,6 @@ public class GameInput : MonoBehaviour
         SceneManager.LoadScene(activeSceneIndex);
     }
 
+    
 
 }
